@@ -1,1 +1,1 @@
-print("gae")
+print("gay")
