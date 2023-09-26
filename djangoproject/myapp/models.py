@@ -22,6 +22,13 @@ class User(models.Model):
 class Profesor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+class HorarioProfesor(models.Model):
+    Profesor = models.ForeignKey(User, on_delete=models.CASCADE)
+    DiaSemana = models.CharField(max_length=10)
+    HoraInicio = models.TimeField()
+    HoraFin = models.TimeField()
+    modalidad = models.CharField(max_length=20)
+
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     Carrera = models.CharField(max_length=255)
