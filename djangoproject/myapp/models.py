@@ -15,3 +15,10 @@ class User(models.Model):
     rut = models.CharField(max_length=20)
     correo = models.CharField(max_length=255)
     clave = models.CharField(max_length=255)
+
+class Profesor(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class SecretarioAcademico(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Carrera = models.CharField(max_length=255)
