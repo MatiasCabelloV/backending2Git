@@ -28,6 +28,7 @@ class HorarioProfesor(models.Model):
     HoraInicio = models.TimeField()
     HoraFin = models.TimeField()
     modalidad = models.CharField(max_length=20)
+    Disponibilidad = models.BooleanField(default=False)
 
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
