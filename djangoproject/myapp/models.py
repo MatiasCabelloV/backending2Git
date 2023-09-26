@@ -2,13 +2,16 @@ from django.db import models
 
 # Create your models here.
 
-class project(models.Model):
+class Project(models.Model):
     name = models.CharField(max_length=200)
 
-class tareas(models.Model):
+    def __str__ (self):
+        return self.name
+
+class Tarea(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
-    proyecto = models.ForeignKey(project, on_delete=models.CASCADE)
+    proyecto = models.ForeignKey(Project, on_delete=models.CASCADE)
 
 class User(models.Model):
     name = models.CharField(max_length=255)
