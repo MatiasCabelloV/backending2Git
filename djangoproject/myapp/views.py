@@ -7,3 +7,6 @@ def hello(request):
 
 def about(request):
     return HttpResponse("About")
+
+def login(request, correo, password):
+    return HttpResponse("login")

@@ -22,3 +22,6 @@ class Profesor(models.Model):
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     Carrera = models.CharField(max_length=255)
+
+class Admin(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
