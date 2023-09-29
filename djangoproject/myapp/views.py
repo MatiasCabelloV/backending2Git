@@ -24,7 +24,7 @@ def registro(request):
                                                 password=request.POST['password1'])
                 user.save()
                 login(request, user) #PAra agregar la cookie del inicio de sesion y saber que usuario es y sus permisos
-                return redirect('tareas')
+                return redirect('v_profesor')
             except IntegrityError:
                 return render(request, 'registro.html', {
                     'form': UserCreationForm,
@@ -35,8 +35,8 @@ def registro(request):
                     'error': 'Contraseñas no coinciden'
         })
 
-def tareas(request):
-    return render(request, 'tarea.html') 
+def profesor(request):
+    return render(request, 'v_profesor.html') 
 
 def cerrar_sesion(request):
     logout(request)
@@ -58,5 +58,5 @@ def iniciar_sesion(request):
             })
         else:
             login(request, user)
-            return redirect('tareas')
+            return redirect('v_profesor')
         
