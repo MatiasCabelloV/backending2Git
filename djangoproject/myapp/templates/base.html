@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>base</title>
+    </head>
+    <body>
+        
+        <nav>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/tareas">Tarea</a>
+            </li>
+            {% endif %}
+            
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/logout">Cerrar sesión</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/registro">Registro</a>
+            </li>
+            <li>
+                <a href="/signin">Iniciar</a>
+            </li>
+            {% endif %}
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
