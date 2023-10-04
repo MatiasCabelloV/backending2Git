@@ -22,18 +22,9 @@ class User(models.Model):
 class Profesor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class Day(models.Model):
-    name = models.CharField(max_length=10)
-
-class Hour(models.Model):
-    time = models.TimeField()
-
 class Horario(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-    day = models.ForeignKey(Day, on_delete=models.CASCADE)
-    hour = models.ForeignKey(Hour, on_delete=models.CASCADE)
-    modalidad = models.CharField(max_length=20)
-    Disponibilidad = models.BooleanField(default=False)
+    matriz = models.CharField(max_length=255)
 
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -41,3 +32,4 @@ class SecretarioAcademico(models.Model):
 
 class Admin(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
