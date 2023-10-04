@@ -24,7 +24,7 @@ class Profesor(models.Model):
 
 class Horario(models.Model):
     profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
-    matriz = models.CharField(max_length=255)
+    matriz = models.CharField(max_length=250, default='default_value')
 
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
