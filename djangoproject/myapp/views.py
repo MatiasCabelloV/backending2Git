@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from .forms import horario
+from .models import Horario, Profesor
 #from django.contrib.auth.decorators import de
 
 # Create your views here.
@@ -36,7 +38,13 @@ def registro(request):
         })
 
 def profesor(request):
-    return render(request, 'v_profesor.html') 
+    if request.method == "GET":
+        return render(request, 'v_profesor.html', {
+            'form': horario()
+        }) 
+    else:
+        Horario.objects.create(profesor_id=1,diurno=request.POST['diurno'], vespertino=request.POST['vespertino'])
+        return redirect('/')
 
 def cerrar_sesion(request):
     logout(request)

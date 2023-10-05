@@ -23,7 +23,7 @@ class Profesor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Horario(models.Model):
-    profesor = models.ForeignKey(Profesor, on_delete=models.CASCADE)
+    profesor = models.OneToOneField(Profesor, on_delete=models.CASCADE)
     diurno = models.CharField(max_length=250, default='default_value')
     vespertino = models.CharField(max_length=250, default='default_value')
 
