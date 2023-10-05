@@ -19,6 +19,9 @@ class User(models.Model):
     correo = models.CharField(max_length=255)
     clave = models.CharField(max_length=255)
 
+    def __str__ (self):
+        return self.name
+
 class Profesor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
