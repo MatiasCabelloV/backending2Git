@@ -8,8 +8,41 @@ from django.db import IntegrityError
 from .forms import horario
 from .models import Horario, Profesor
 #from django.contrib.auth.decorators import de
+from rest_framework import viewsets
+from .serializer import *
+from .models import *
 
-# Create your views here.
+# VISTA JSX
+class ProjectSeri(viewsets.ModelViewSet):
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.all()
+
+class TareaSeri(viewsets.ModelViewSet):
+    serializer_class = TareaSerializer
+    queryset = Tarea.objects.all()
+
+class UserSeri(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
+class ProfesorSeri(viewsets.ModelViewSet):
+    serializer_class = ProfesorSerializer
+    queryset = Profesor.objects.all()
+
+class HorarioSeri(viewsets.ModelViewSet):
+    serializer_class = HorarioSerializer
+    queryset = Horario.objects.all()
+
+class SecretarioAcademicoSeri(viewsets.ModelViewSet):
+    serializer_class = SecretarioAcademicoSerializer
+    queryset = SecretarioAcademico.objects.all()
+
+class AdminSeri(viewsets.ModelViewSet):
+    serializer_class = AdminSerializer
+    queryset = Admin.objects.all()
+
+
+# VISTA TEMPLATES
 def home(request):
     return render(request, 'home.html')
 
