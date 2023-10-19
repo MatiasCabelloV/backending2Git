@@ -36,6 +36,25 @@ class AdminSeri(viewsets.ModelViewSet):
     serializer_class = AdminSerializer
     queryset = Admin.objects.all()
 
+class PlanificacionSeri(viewsets.ModelViewSet):
+    serializer_class = PlanificacionSerializer
+    queryset = PlanificacionAcademica.objects.all()
+
+class CursoSeri(viewsets.ModelViewSet):
+    serializer_class = CursoSerializer
+    queryset = Curso.objects.all()
+
+class HorarioSeri(viewsets.ModelViewSet):
+    serializer_class = HorarioSerializer
+    queryset = HorarioCurso.objects.all()
+
+class ProfesorCursoSeri(viewsets.ModelViewSet):
+    serializer_class = ProfesorCursoSerializer
+    queryset = ProfesorCurso.objects.all()
+
+class AuditoriaSeri(viewsets.ModelViewSet):
+    serializer_class = AuditoriaSerializer
+    queryset = Auditoria.objects.all()
 
 # VISTA TEMPLATES
 def home(request):

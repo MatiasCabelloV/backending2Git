@@ -30,3 +30,28 @@ class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Admin
         fields = '__all__'
+
+class PlanificacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PlanificacionAcademica
+        fields = '__all__'
+
+class CursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Curso
+        fields = '__all__'
+
+class HorarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HorarioCurso
+        fields = '__all__'
+
+class ProfesorCursoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfesorCurso
+        fields = '__all__'
+
+class AuditoriaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Auditoria
+        fields = '__all__'
