@@ -15,13 +15,10 @@ router4 = routers.DefaultRouter()
 router4.register(r'myapp', views.ProfesorSeri, 'Profesor')
 
 router5 = routers.DefaultRouter()
-router5.register(r'myapp', views.HorarioSeri, 'Horario')
+router5.register(r'myapp', views.SecretarioAcademicoSeri, 'SecretarioAcademico')
 
 router6 = routers.DefaultRouter()
-router6.register(r'myapp', views.SecretarioAcademicoSeri, 'SecretarioAcademico')
-
-router7 = routers.DefaultRouter()
-router7.register(r'myapp', views.AdminSeri, 'Admin')
+router6.register(r'myapp', views.AdminSeri, 'Admin')
 
 urlpatterns = [
     path('api/v1/', include(router1.urls)),
@@ -30,7 +27,6 @@ urlpatterns = [
     path('api/v4/', include(router4.urls)),
     path('api/v5/', include(router5.urls)),
     path('api/v6/', include(router6.urls)),
-    path('api/v7/', include(router7.urls)),
     path('', views.home, name='home'),
     path('registro/', views.registro, name='registro'),
     path('profesor/', views.profesor, name='v_profesor'),

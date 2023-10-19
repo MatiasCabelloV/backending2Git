@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+diurno = "[[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]"
+vespertino = "[[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]"
+
 class Project(models.Model):
     name = models.CharField(max_length=200)
 
@@ -24,11 +27,11 @@ class User(models.Model):
 
 class Profesor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class Horario(models.Model):
-    profesor = models.OneToOneField(Profesor, on_delete=models.CASCADE)
-    diurno = models.CharField(max_length=250, default='default_value')
-    vespertino = models.CharField(max_length=250, default='default_value')
+    carrera = models.CharField(max_length=45)
+    departamento = models.CharField(max_length=45)
+    jornada = models.CharField(max_length=45)
+    diurno = models.CharField(max_length=250, default=diurno)
+    vespertino = models.CharField(max_length=250, default=vespertino)
 
 class SecretarioAcademico(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

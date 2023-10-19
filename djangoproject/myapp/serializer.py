@@ -21,11 +21,6 @@ class ProfesorSerializer(serializers.ModelSerializer):
         model = Profesor
         fields = '__all__'
 
-class HorarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Horario
-        fields = '__all__'
-
 class SecretarioAcademicoSerializer(serializers.ModelSerializer):
     class Meta:
         model = SecretarioAcademico
